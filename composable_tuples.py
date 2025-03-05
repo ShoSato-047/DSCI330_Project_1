@@ -1,5 +1,19 @@
 from composable import pipeable
 
+#
+### Tentative tuple class based on namedtuples
+#
+# from collections import namedtuple
+# tuple_names = lambda n, *, prefix = 'i': [f"{prefix}{i}" for i in range(n)]
+# 
+# tuple_names(5)
+# 
+# make_tuple = lambda seq, *, name = 'Tuple', prefix = 'i': namedtuple(f"{name}{len(seq)}", tuple_names(len(seq), prefix = prefix))(*seq)
+# 
+# (tup := make_tuple(range(5)))
+# 
+# tup.i1
+
 @pipeable
 def create_tuple(funcs, val):
     return tuple(f(val) for f in funcs)
